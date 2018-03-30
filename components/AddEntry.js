@@ -42,9 +42,9 @@ export default class AddEntry extends Component {
   };
 
   slide = (metric, value) => {
-    this.setState(() => ({
+    this.setState({
       [metric]: value
-    }));
+    });
   }
 
   submit = () => {
