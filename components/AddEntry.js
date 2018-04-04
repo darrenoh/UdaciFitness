@@ -86,7 +86,7 @@ class AddEntry extends Component {
   reset = () => {
     const key = timeToString();
 
-    this.props.dispact(addEntry({
+    this.props.dispatch(addEntry({
       [key]: getDailyReminderValue()
     }));
 
