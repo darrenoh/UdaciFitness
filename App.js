@@ -79,8 +79,15 @@ const MainNavigator = StackNavigator({
 
 export default class App extends React.Component {
   render() {
+    const store = createStore(reducer);
+    if (module.hot) {
+      module.hot.accept('./reducers', () => {
+        const nextReducer = require('./reducers/index');
+        store.replaceReducer(nextReducer);
+      });
+    }
     return (
-      <Provider store={createStore(reducer)}>
+      <Provider store={store}>
         <View style={{flex: 1}}>
           <UdaciStatusBar backgroundColor={purple} barStyle='light-content' />
           <MainNavigator />
